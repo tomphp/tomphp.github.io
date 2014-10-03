@@ -78,11 +78,11 @@ Feature: View a widget
 First up we decide to put on our domain modelling hat. We're not going to
 concern ourselves with how to build the front end for now.
 
-We decide to build 2 use cases: one called `ListWidgets` and another
-called `ViewWidget`.  The `ListWidgets` use case is nice and simple, it just
-fetches all widgets and returns a list of their names. The second is a bit more
-tricky, it fetches a single widget and returns it's details but, how does it
-identify which widget to fetch?
+We decide to build 2 use cases: one called `ListWidgets` and another called
+`ViewWidget`.  The `ListWidgets` use case is nice and simple, it just fetches
+all widgets and returns a list of their names. The 'ViewWidget` one is a bit
+more tricky, it fetches a single widget and returns its details - but, how does
+it identify which widget to fetch?
 
 Of course, as programmers we have the answer - we love unique IDs! We know that
 what we need to do is return the ID a long with the name of each widget from
@@ -187,9 +187,9 @@ snippets, we want to use the same features running with the new context.
 In the `UserInterfaceContext` we use Mink to nagivate the site:
 
 * To test the *List Widgets* feature we simply navigate to
-`http://devsite/widgets` and check the expected names of the widgets appear
-on the page.
-* To test viewing a widget, we navigate to the the list widgets page again, then
+`http://devsite/widgets` and check the expected names of the widgets appear on
+the page.
+* To test viewing a widget, we navigate to the list widgets page again, then
 *click* the widget we want to view. This is better than creating a URL with an
 ID in it because we probably don't actually want IDs in the URL - a nice
 readable URL is much better!
@@ -324,7 +324,7 @@ default:
 
 Which approach is best? Should the features have no knowledge of IDs and 
 have separate features for the API? Or, should we try to use the features at
-all levels an use tags to exclude context specific scenarios?
+all levels and use tags to exclude context specific scenarios?
 
 Personally, I think it depends on who the features are for and what language
 they speak. This means either approach could be valid depending on the

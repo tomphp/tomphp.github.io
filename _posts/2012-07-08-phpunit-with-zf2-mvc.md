@@ -194,5 +194,5 @@ OK (3 tests, 7 assertions)
 
 Success!
 
-Next up time to work out how to use PHPUnit with classes that access the
-database & controller classes.
+Next up, time to work out how to use PHPUnit with classes that access the
+database and controller classes.
