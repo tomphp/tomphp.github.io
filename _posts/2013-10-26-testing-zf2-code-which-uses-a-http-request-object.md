@@ -17,6 +17,8 @@ After a bit of hunting around I came up with the following, simple
 solution: 
 
 {% highlight php %}
+<?php
+
 class MyModuleTest extends \PHPUnit_Framework_TestCase
 {
     /**

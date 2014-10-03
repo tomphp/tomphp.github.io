@@ -13,6 +13,7 @@ good, it's very helpful when an exception gets thrown and logged.  However, it
 leads to code that looks like this:
 
 {% highlight php %}
+<?php
 //...
 public function someUsefulMethod($id)
 {
@@ -46,6 +47,8 @@ I decided to adopt this pattern, and instead of the code above I now had this:
 
 ### Exception Class
 {% highlight php %}
+<?php
+
 class MyExceptionClass
 {
     public static function usefulErrorDescription($id, $entity)
@@ -63,6 +66,8 @@ class MyExceptionClass
 
 ### Code
 {% highlight php %}
+<?php
+
 //...
 public function someUsefulMethod($id)
 {
@@ -86,6 +91,8 @@ and could be improved further. Using the wonders of PHP 5.4's nice new feature,
 I created the following trait:
 
 {% highlight php %}
+<?php
+
 /**
  * This trait provides a factory method for exceptions which have static
  * methods to create themselves.
@@ -133,6 +140,8 @@ Now, by telling my exception class to use this trait, I can have nice neat
 exception classes like so:
 
 {% highlight php %}
+<?php
+
 class MyExceptionClass
 {
     use ExceptionFactoryTrait;
