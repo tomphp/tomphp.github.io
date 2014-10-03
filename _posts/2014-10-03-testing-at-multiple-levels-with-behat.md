@@ -20,11 +20,11 @@ feel much more confident about the way I've been working with Behat. It also
 prompted me to write this article which contains some further thoughts about
 the approach of testing at multiple levels with Behat.
 
-I've primarily been trying testing at 2 levels with the same features; once at
+I've primarily been testing at 2 levels with the same features: once at
 the domain level and once at the user interface level. I've also been
 experimenting with the idea of using the same features to test a RESTful API,
 and even pondered on whether you could use CucumberJS to run the same features
-on a Javascript, client side interface. At one level, all this works really
+on a Javascript, client side interface. At one level all this works really
 well. On another level there are still slightly different sets of information
 and languages which are relevant at each layer. These difference are what I
 want to discuss here.
@@ -39,7 +39,7 @@ you simply approach the development of each at separate times, then only the
 user interface developer has a nice feature to work towards. Using the same features
 to test each of these levels provides a means for the developer at each level
 to work their own acceptance criteria (even though the stakeholder is only
-really interested in setting the final, full stack, user interface tests).
+really interested in seeing the final, full stack, user interface tests).
 
 It also means that when a new or replacement user interface is developed, there
 are still fantastic tests present on the entry points to the domain layer.
@@ -47,7 +47,7 @@ are still fantastic tests present on the entry points to the domain layer.
 ## A Case Study
 
 Say we have a simple system which lists widgets and when you click on one you
-can see the it's details on a new page. From chatting with the stakeholders you
+can see it's details on a new page. From chatting with the stakeholders you
 come up with something like this:
 
 {% highlight cucumber %}
@@ -76,12 +76,12 @@ Feature: View a widget
 ### Building the Application
 
 First up we decide to put on our domain modelling hat. We're not going to
-concern ourselves about how to build the front end for now.
+concern ourselves with how to build the front end for now.
 
-We decide that to build 2 use cases, one called `ListWidgets` and another
+We decide to build 2 use cases: one called `ListWidgets` and another
 called `ViewWidget`.  The `ListWidgets` use case is nice and simple, it just
 fetches all widgets and returns a list of their names. The second is a bit more
-tricky, it fetches a single widget and returns it's details, but, how does it
+tricky, it fetches a single widget and returns it's details but, how does it
 identify which widget to fetch?
 
 Of course, as programmers we have the answer - we love unique IDs! We know that
@@ -177,28 +177,27 @@ domain modelling hat, and put on our front end developer hat.
 ### Building the Front End
 
 For the user interface testing we can create a new `UserInterfaceContext` which
-makes use of `Mink` to inspect the user interface. Rather than using the
-provided `Mink` snippets, we just want to use the same features running with
-the new context.
+makes use of `Mink` to inspect the pages. Rather than using the provided `Mink`
+snippets, we want to use the same features running with the new context.
 
 In the `UserInterfaceContext` we use Mink to nagivate the site:
 
 * To test the *List Widgets* feature we simply navigate to
 `http://devsite/widgets` and check the expected names of the widgets appear
 on the page.
-* To view the widget, we navigate to the the list widgets page again, then
+* To test viewing a widget, we navigate to the the list widgets page again, then
 *click* the widget we want to view. This is better than creating a URL with an
-ID in it because we probably don't actually want IDs in the URL, a nice
+ID in it because we probably don't actually want IDs in the URL - a nice
 readable URL is much better!
 
-Once we've built the user interface the features pass then we can celebrate our
-success and demonstrate the feature to the stakeholder.
+Once we've built the user interface and the features pass then we can celebrate
+our success and demonstrate the feature to the stakeholder.
 
-The stakeholder is very happy. He then announce that he's decided to get
-someone else to build a mobile application. This mobile application wants to
-be able to view and list widgets as well and we have to build RESTful API for
-the mobile app to connect to. No problem, we can create a new `ApiContext`
-and make the same features pass again again - or can we?
+The stakeholder is very happy. They then announce that they've decided to get
+someone else to build a mobile application. This mobile application wants to be
+able to view and list widgets as well. We now have to build a RESTful API for
+the mobile app to connect to. No problem, we can create a new `ApiContext` and
+make the same features pass again - or can we?
 
 ### The API Features
 
@@ -236,24 +235,25 @@ Feature: View a widget
         And I should get a field called details value "widget info"
 {% endhighlight %}
 
-There's something interesting to think about here - the ID is also of interest
-to the `DomainContext` we created earlier. Since the ID was of no interest to
-the stakeholder we thought it had no place in the feature files, but in that
-situation who are the features real for? The stakeholder isn't really interested in
-the fact that the domain model works, they're only really interested that the
-full stack and mobile applications work. You could say that the features run
-against the `DomainContext` are actually *integration tests*. Or, you could say
-that they are *acceptance tests for developers*. If they are *acceptance tests
-for developers* then can the "Ubiquitous Langauge" contain terms of interest to
-the developers? Are the developers the stakeholders?
+But there's something interesting to think about here - the ID is also of
+interest to the `DomainContext` we created earlier. Since the ID was of no
+interest to the stakeholder we thought it had no place in the feature files.
+However, thinking about it now, in the domain context who are the features
+really for? The stakeholder isn't really interested in the fact that the domain
+model works, they're only really interested that the full stack and mobile
+applications work. You could say that the features run against the
+`DomainContext` are actually *integration tests*. Or, you could say that they
+are *acceptance tests for developers*. If they are *acceptance tests for
+developers* then can the "Ubiquitous Langauge" in this context contain terms of
+interest to the developers? Are the developers the stakeholders?
 
 ### Tagging Scenarios
 
-Behat provides a great tagging system, you can tag a scenario then you can
-configure Behat to include or exclude scenarios with certain tags from each
-suite. With this in mind we can take the original scenarios and add some extra
-tagged scenarios which do know about the IDs, these can then be run against
-only the `ApiContext` and `DomainContext` where IDs are appropriate language:
+Behat provides a great tagging system. You can tag a scenario then, configure
+Behat to include or exclude scenarios with certain tags from each suite. With
+this in mind, we can take the original scenarios and add some extra tagged
+scenarios which do know about the IDs. These can then be run against only the
+`ApiContext` and `DomainContext` where IDs are appropriate language:
 
 {% highlight cucumber %}
 Feature: List Widgets
@@ -318,12 +318,12 @@ default:
 
 ## Conclusion
 
-Which approach is best? Should the features have no knowledge of IDs and there
-be have separate features for the API? Or, should we try to use the features at
+Which approach is best? Should the features have no knowledge of IDs and 
+have separate features for the API? Or, should we try to use the features at
 all levels an use tags to exclude context specific scenarios?
 
 Personally, I think it depends on who the features are for and what language
-they speak. This means either approach could be valid, depending on the
+they speak. This means either approach could be valid depending on the
 parameters of the project and team.
 
 I'd really love to hear everyone else thoughts on this!
