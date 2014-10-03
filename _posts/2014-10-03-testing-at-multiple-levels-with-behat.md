@@ -94,6 +94,10 @@ such a detail. From these scenarios we come up with a `DomainContext` which
 contains something like this:
 
 {% highlight php %}
+<?php
+
+// ... inside the DomainContext class
+
 /**
  * @var WidgetRepository
  */
