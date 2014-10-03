@@ -13,7 +13,8 @@ Today has been a rather exciting day for me. Konstantin Kudryashov, aka
 article](http://everzet.com/post/99045129766/introducing-modelling-by-example).
 I was probably somewhat more excited than many other people about this because,
 in it he talks about using Behat in the way that I've currently been trying
-myself, and is also the way I'm presenting in the [upcoming book I'm working
+myself. It's also the way I'm presenting working with Behat in the [upcoming
+book I'm working
 on](https://leanpub.com/modern-application-development-with-php). This made me
 feel much more confident about the way I've been working with Behat. It also
 prompted me to write this article which contains some further thoughts about
