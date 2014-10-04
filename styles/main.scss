@@ -6,6 +6,21 @@ header {
     border-bottom: 2px #000 solid;
 }
 
+time {
+    color: grey;
+    font-style: italic;
+}
+
+h1.post-title {
+    margin-bottom: 0;
+}
+
+.post-date {
+    color: grey;
+    display: block;
+    margin-bottom: 15px;
+}
+
 .oldpost-warning {
     color: #fff;
     font-weight: bold;
@@ -34,8 +49,4 @@ header {
         }
     }
 
-    time {
-        color: grey;
-        font-style: italic;
-    }
 }
