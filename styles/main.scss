@@ -14,3 +14,28 @@ header {
     padding: 5px;
     margin-bottom: 10px;
 }
+
+.post-list {
+    padding: 0;
+    margin: 0;
+
+    li {
+        list-style: none;
+    }
+
+    h4 {
+        margin-bottom: 3px;
+        a {
+            color: #006;
+            text-decoration: none;
+        }
+        a:hover {
+            color: #f00;
+        }
+    }
+
+    time {
+        color: grey;
+        font-style: italic;
+    }
+}
