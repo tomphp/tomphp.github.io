@@ -14,7 +14,7 @@ leads to code that looks like this:
 
 {% highlight php %}
 <?php
-//...
+
 public function someUsefulMethod($id)
 {
     $entity = $this->repository()->findById($id);
@@ -31,7 +31,7 @@ public function someUsefulMethod($id)
 
     // Do stuff with $entity ...
 }
-//...
+
 {% endhighlight %}
 
 This looks like a bit of a mess to me. It takes up 9 lines and has 3 extra
