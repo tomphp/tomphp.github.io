@@ -152,9 +152,9 @@ class MyExceptionClass
             'The nice descriptions that methods id "%d" and the type of entity "%s".',
             [$id, self::typeToString($entity)]
         );
-
-        // more factory methods ...
     }
+
+    // more factory methods ...
 }
 {% endhighlight %}
 
