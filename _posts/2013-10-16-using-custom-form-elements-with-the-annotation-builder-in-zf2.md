@@ -1,5 +1,5 @@
 ---
-title: Using Customer Form Elements With the Annotation Builder in Zend Framework 2
+title: Using Custom Form Elements With the Annotation Builder in Zend Framework 2
 category: Zend Framework 2
 layout: oldpost
 tags:

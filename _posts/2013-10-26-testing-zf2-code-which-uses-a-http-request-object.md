@@ -1,5 +1,5 @@
 ---
-title: Testing Zend Framework 2 Code Which Uses a HTTP Request object.
+title: Testing Zend Framework 2 Code Which Uses a HTTP Request object
 category: Zend Framework 2
 layout: oldpost
 tags:
