@@ -299,7 +299,7 @@ Feature: View a widget
     Scenario: View a widget
         Given there is a widget "Widget A" which details "widget info" with id 5
         When I view widget "Widget A"
-        Then I should see widget id 5"
+        Then I should see widget id 5
         And I should see widget name "Widget A"
         And I should see widget details "widget info"
 {% endhighlight %}
