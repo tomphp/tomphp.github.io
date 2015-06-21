@@ -84,10 +84,10 @@ started toying with some ideas at Socrates (both with [Johan
 Martinsson](https://twitter.com/johan_alps) and [Ross
 Huggett](https://twitter.com/rosshuggett)) but due to time limitations and
 tiredness, the attempts didn't go anywhere. Since then I've been toying with it
-and trying different approaches. The code I've ended up with is at
-https://github.com/tomphp/clojure-social-network. This code doesn't obey all
-the Functional Calisthenics rules set out above, but in places where it doesn't
-I made specific reasons why - details below:
+and trying different approaches. The code I've ended up with is on
+[GitHub](https://github.com/tomphp/clojure-social-network). This code doesn't
+obey all the Functional Calisthenics rules set out above, but in places where
+it doesn't I made specific reasons why - details below:
 
 ### The Rules Which Didn't Apply
 
