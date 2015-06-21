@@ -144,24 +144,24 @@ is a bit less obvious though?
 
 In Clojure, this is saying to prefer this:
 
-```
+{% highlight clojure %}
 (defn make [author message]
   (let [mention-matches (re-seq #"@([A-Za-z0-9]*)" message)
         mentions (map second mention-matches)
         link-matches (re-seq #"(http://[^\s]*)" message)
         links (map second link-matches)]
     (Message. author message (set mentions) (set links))))
-```
+{% endhighlight %}
 
 over
 
-```
+{% highlight clojure %}
 (defn make [author message]
   (Message. author
             message
             (set (map second (re-seq #"@([A-Za-z0-9]*)" message)))
             (set (map second (re-seq #"(http://[^\s]*)" message)))))
-```
+{% endhighlight %}
 
 Those may not have been the best examples, but hopefully the first one is some
 what clearer. However, the second one looks more concise.
@@ -176,15 +176,15 @@ possible. For this reason, this rule gets the thumbs up from me.
 
 There are 2 syntaxes for creating anonymous functions in Clojure:
 
-```
+{% highlight clojure %}
 (fn [value] (* value value))
-```
+{% endhighlight %}
 
 And:
 
-```
+{% highlight clojure %}
 #(* % %)
-```
+{% endhighlight %}
 
 I think the *Name Everything* rule should enforce the use of the first method.
 However, in my code, I've used the second method a lot - I just like it for 
@@ -228,17 +228,17 @@ I've also state the changing mutable stage is a side effect also.
 
 Now, consider a function:
 
-```
+{% highlight clojure %}
 (defn add-and-output [a b]
   (println (+ a b)))
 
 (add-and-output 4 5)
-```
+{% endhighlight %}
 
 `add-and-output` is obviously causing a side effect. But how about 
 `add-and-action` below:
 
-```
+{% highlight clojure %}
 (defn add-and-action [action a b]
   (action (+ a b)))
 
@@ -246,7 +246,7 @@ Now, consider a function:
   (println value))
 
 (add-and-action print-action 4 5)
-```
+{% endhighlight %}
 
 This time, we're passing in an action which is an abstraction to a side
 effecting function. Now, action could return a value and this would be a valid,
@@ -263,7 +263,7 @@ Or maybe that's implied by *Side effects can only occur at the top level*?
 Thinking about side-effects help me a lot. A one point I had some code which
 looked like this:
 
-```
+{% highlight clojure %}
 (defn- get-public-messages [message-store] 
   (let [fetch-all (:fetch-all message-store)
         messages (fetch-all)]
@@ -274,7 +274,7 @@ looked like this:
         active-user (fetch-user-by-name active-user-name)
         follows (:follows active-user)]
     (filter #(follows (:author %)) (get-public-messages message-store))))
-```
+{% endhighlight %}
 
 I thought I was being clever but hiding the reading of the message store behind
 an abstraction and pushing the reading down deep into the nested function
@@ -283,7 +283,7 @@ relying on the side effects. I then broke it down into a collection of pure
 functions which each  did one small transformation on the message
 stream. This resulted in some much more pleasant code:
 
-```
+{% highlight clojure %}
 (defn from-followee? [followees message]
   (contains? followees (:author message)))
 
@@ -301,7 +301,7 @@ stream. This resulted in some much more pleasant code:
     (-> (fetch-messages)
         public-only
         (from-followees follows))))
-```
+{% endhighlight %}
 
 As these neat little pure functions started to appear, then I saw an obvious
 use for Clojure's threading macro (`->`). This made me consider the ordering
@@ -329,49 +329,49 @@ I've come to the conclusion that I don't think this is right for Clojure.
 
 Take this example from my code:
 
-```
+{% highlight clojure %}
 (defn- timeline-for-user [fetch-messages user-name]
   (-> (fetch-messages)
       messages/public-only
       (messages/authored-by user-name)))
-```
+{% endhighlight %}
 
-```
+{% highlight clojure %}
 (defn public-only [messages] 
   (filter public? messages))
 
 (defn authored-by [messages author-name]
   (filter (partial message/authored-by? author-name) messages)) 
-```
+{% endhighlight %}
 
-```
+{% highlight clojure %}
 (defn authored-by? [author-name message]
   (= (:author message) author-name))
-```
+{% endhighlight %}
 
 I tried re-writing this like so:
 
-```
+{% highlight clojure %}
 ; This is outside the "domain model" so I'm allowing the parameters
 (defn- timeline-for-user [fetch-messages user-name]
   (let [authored-by (messages/authored-by username)]
     (-> (fetch-messages)
         messages/public-only
         messages/authored-by)))
-```
+{% endhighlight %}
 
-```
+{% highlight clojure %}
 (defn public-only [messages] 
   (filter public? messages))
 
 (defn authored-by [messages author-name]
   (partial filter (message/authored-by author-name) messages)) 
-```
+{% endhighlight %}
 
-```
+{% highlight clojure %}
 (defn authored-by [author-name]
   (fn [message] (= (:author message) author-name)))
-```
+{% endhighlight %}
 
 I studied this for a while and decided that I had gained nothing from it. I can
 achieve the same functionality using `partial` and I feel the first is a little
