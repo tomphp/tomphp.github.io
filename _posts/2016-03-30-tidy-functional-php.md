@@ -14,7 +14,7 @@ only a matter of time before you come across the `map`, `reduce` and `filter`
 functions. Using these functions you can reason about performing actions on
 collections as a whole, rather than concerning yourself about the internal
 detail of looping over elements. As you get used to using these functions, you
-start to see a real elgance in the way they describe the processing of data.
+start to see a real elegance in the way they describe the processing of data.
 
 ## Map, Reduce and Filter in PHP
 
@@ -73,8 +73,8 @@ $total = array_reduce(
 
 ### array_filter
 
-`array_filter` is uses a predicate function to filter out unwanted items
-from an array. For example:
+`array_filter` uses a predicate function to filter out unwanted items from an
+array. For example:
 
 ```php
 $redCars = [];
@@ -134,7 +134,7 @@ are neat, single liners. However, in PHP the overly verbose anonymous function
 syntax makes them pretty ugly and complicated looking. There was a
 proposed RFC for a
 [short closure syntax](https://wiki.php.net/rfc/short_closures) for PHP, which
-would have enabled use to write nice had code like this:
+would have enabled us to write nice code like this:
 
 ```php
 $names = array_map($customer ~> $customer.getName(), $customers);
@@ -151,10 +151,10 @@ decided to do something about it. I started creating a library of functions
 which each returned a closure to be used as a predicate for `array_filter` or a
 transformation for `array_map` (I use `array_reduce` much less often).
 
-After starting work, I doubted that I was be the first person to do this,
+After starting work, I doubted that I was the first person to do this,
 so I put it out to Twitter. [Giuseppe Mazzapica](https://twitter.com/gmazzap)
 responded saying that he had a library which provides predicate part of what I
-was doing - he then promptly upload his excellent
+was doing - he then promptly uploaded his excellent
 [Pentothal](https://github.com/Giuseppe-Mazzapica/Pentothal) library. From that
 point on, I decided to just focus on the transformation part - I called this
 library [Transform](https://github.com/tomphp/php-transform).
@@ -162,8 +162,8 @@ library [Transform](https://github.com/tomphp/php-transform).
 ### Transform
 
 Transform provides functions which create closures to perform many common
-actions which you might commonly want to use with `array_map`. Taking our
-example above you can use the following code:
+actions which you might want to use with `array_map`. Taking our example above
+you can use the following code:
 
 ```php
 use TomPHP\Transform as T;
