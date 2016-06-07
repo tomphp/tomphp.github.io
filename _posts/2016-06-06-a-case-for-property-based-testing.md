@@ -169,10 +169,11 @@ Ran 2 tests containing 9 assertions.
 Now it's perfectly possible that I could've written an explicit example cause
 the stack to blow. However, to have created such an example, I would have had
 to have been focussing on the implementation of the language. What's more, at
-some point my code might be compiled on a platform with a different stack size
-- invalidating such an example. By using a Property Test, I managed to locate
-an edge case error by focusing only on the domain of the problem I was solving,
-for this reason I can see this as being a valuable tool!
+some point my code might be compiled on a platform with a different stack
+size - invalidating such an example. **By using a Property Test, I managed to
+locate an implementation edge case error by focusing only on the domain of the
+problem I was solving,** for this reason I can see this as being a valuable
+tool!
 
 ### An Admission
 
