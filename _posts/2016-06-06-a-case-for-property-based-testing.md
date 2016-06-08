@@ -180,7 +180,7 @@ tool!
 For this example, I did intentionally set out to blow the stack. However, when
 I wrote the property test, I initially failed to generate an error because my
 range of input prime numbers was not high enough (only the first 10). After
-increasing the list, I got the error I was expecting. The raises the question
+increasing the list, I got the error I was expecting. This raises the question
 that if you don't know what error you are looking for, how do you ensure that
 the range that your generator is generating is sufficient? Something to ponder
 on...
