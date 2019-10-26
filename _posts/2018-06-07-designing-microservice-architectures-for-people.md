@@ -4,7 +4,6 @@ description: Right now, microservice architectures are everywhere — everyone i
 featured_image: '/images/designing-microservice-architectures-for-people/featured-image.jpeg'
 ---
 
-
 Right now, microservice architectures are everywhere — everyone is doing them.
 However, it seems that many organisations which have invested in designing and
 building new microservice architectures are struggling to scale their
