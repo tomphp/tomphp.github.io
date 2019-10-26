@@ -62,14 +62,9 @@ However, at this point, there’s a challenge — which test to write next?
 Typically the person makes one of two choices — resulting in one of three
 outcomes:
 
-1. They choose 5 and jump straight into using `number % 3 == 0` — never writing
-   the test for 6; which should triangulate to the _divisible by_ behaviour.
-
-2. They choose 6, write the test, but never see it fail (sometimes making a
-   copy and paste error in the process).
-
-3. They choose 5 (using `number == 3`) and then do 6 next (evolving the code to
-   `number % 3 == 0`)
+1. They choose 5 and jump straight into using `number % 3 == 0` — never writing the test for 6; which should triangulate to the _divisible by_ behaviour.
+2. They choose 6, write the test, but never see it fail (sometimes making a copy and paste error in the process).
+3. They choose 5 (using `number == 3`) and then do 6 next (evolving the code to `number % 3 == 0`)
 
 Of these three options, I think number 3 is the best from a strict TDD cycle
 point of view. However, it does mean that we interleave the implementation of
