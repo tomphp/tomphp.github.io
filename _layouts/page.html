@@ -11,7 +11,7 @@ layout: default
 	<div class="wrap">
 
 		<h1>{{ page.title }}</h1>
-		<p>{{ page.date | date_to_long_string }}</p>
+		<p>{{ page.subtitle }}</p>
 
 	</div>
 
@@ -22,17 +22,10 @@ layout: default
 	<div class="wrap">
 
 		<article class="single-post">
-			<p class="oldpost-warning">
-				WARNING: This post was written a long time ago. It exists here as a record
-				and may not reflect my current views or opinions. Also, any code,
-				technologies or examples may be out of date.
-			</p>
 
 			{{ page.content }}
 
 		</article>
-
-		{% include disqus.html %}
 
 	</div>
 
