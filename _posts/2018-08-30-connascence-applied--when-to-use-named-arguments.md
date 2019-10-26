@@ -4,7 +4,6 @@ description: I recently found myself doing some work in Python and started quest
 featured_image: '/images/connascence-applied--when-to-use-named-arguments/featured-image.png'
 ---
 
-
 I recently found myself doing some work in Python and started questioning when
 I should be using [named function
 arguments](http://www.diveintopython.net/power_of_introspection/optional_arguments.html).
