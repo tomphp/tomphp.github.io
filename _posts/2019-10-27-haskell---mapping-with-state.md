@@ -65,7 +65,7 @@ the resulting list and perform the calculations.
 
 ## Generalising with a new higher-order function
 
-Let's start by separating the calcuation from the _stateful mapping_. We can do
+Let's start by separating the calculation from the _stateful mapping_. We can do
 this by creating a new `mapWithState` higher-order function.
 
 ```haskell
