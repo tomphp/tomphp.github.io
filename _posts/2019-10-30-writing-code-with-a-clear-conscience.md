@@ -1,5 +1,5 @@
 ---
-title: Comitting With A Clear Conscience
+title: Writing Code With A Clear Conscience
 description: When is a story done? How perfect should the code be? How much engineering is over-engineering?
 featured_image: '/images/writing-code-with-a-clear-conscience/featured-image.jpg'
 ---
