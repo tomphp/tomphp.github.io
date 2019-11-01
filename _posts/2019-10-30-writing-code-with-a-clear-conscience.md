@@ -207,7 +207,7 @@ depending on your specific circumstances:
 
 - **Security**: _"Is my code secure?"_, _"Can any personal details be leaked?"_, _"Are the dependencies up to date?"_, etc.
 - **Logging**: _"Have I logged useful messages?"_, _"Have I logged at the right error level?"_, _"Am I logging any unnecessary noise?"_, etc.
-, **Accessibility**: _Does the design of the feature exclude anyone from using it?_
+- **Accessibility**: _Does the design of the feature exclude anyone from using it?_
 
 There are many more, but I'll leave it up to you to decide what is appropriate
 for each situation.
