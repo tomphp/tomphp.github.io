@@ -1,6 +1,6 @@
 ---
 title: Comitting With A Clear Conscience
-description: When it a story done? How perfect should the code be? How much engineering is over-engineering?
+description: When is a story done? How perfect should the code be? How much engineering is over-engineering?
 featured_image: '/images/writing-code-with-a-clear-conscience/featured-image.jpg'
 ---
 
@@ -89,13 +89,20 @@ are:
 
 ## Other developers
 
-This time I'm going to start with the question:
+As part of a team, everyone should help each other succeed. By creating good
+quality as sustainable code, can help your team achieve their goals. Confusion
+or misleading code can cause other developers to loose hours trying to
+understand it. Tangled or tightly coupled code can be very hard to extend.
+Missing tests make it hard to be confident that your changes work. To have a
+clear conscience, we should deliver code that other team members will enjoy
+working with.
+
+The quesion we should ask ourselves here is:
 
 > Is my code going to make the work on future features harder?
 
-We should write code which enables other developers (or even ourselves) to
-continue to be productive. There are several things we should consider while
-trying to achieve this. These include:
+This time, I'm going to go a bit deeper into each of the factors which
+contribute to delivering high-quality code.
 
 ### Testing
 
@@ -119,10 +126,15 @@ continue to develop the system.
 
 ### Formatting
 
-_"Have I laid out my code in a way which is consistent to the project?"_
+Having a consistent formatting style in a project reduces the cognative load
+for the people reading it. When the layout is consistent, our eyes
+instinctively follow the code, and we don't have to hunt so hard for the logic
+we are looking for.
 
-Formatting is an easy one, ensure that the project has a coding style, and
-follow it. Better yet, use a linter to check/fix your code for you. It's
+Ask yourself _"Have I laid out my code in a way which is consistent to the project?"_
+
+The important thing is that the team chooses a coding style and everyone
+follows it. Better yet, use a linter to check/fix your code for you. It's
 important that you code to the project's coding style, not your own. Having
 a clear conscience is not about you thinking it's perfect, rather, it's about
 ensuring that it doesn't frustrate your colleagues.
@@ -140,7 +152,7 @@ If you can't think of the perfect name then it's not a problem (we have powerful
 refactoring tools at our fingertips which makes renaming things simple). It is
 a problem though if our names cause confusion or misunderstanding.
 
-### Well Architectured
+### Well Architected
 
 How we structure our programs has a huge impact on how future work is done. On
 one hand, we might be able to make something work as intended with a thousand
@@ -179,13 +191,26 @@ change the original architecture if we collectively agree it is a hinderance.
 
 ### Failure Cases
 
-The final questions to ask is: _"Have I handled all failure cases
-sufficiently?"_. This is not just about helping other developers from making
-mistakes, but also meeting our SLAs with the end-users.
+Things fail, that's a fact. If that failure causes distress to the end-users,
+then that's a problem. If reported failures from end-users cannot be easily
+tracked down and diagnosed, then everyone suffers.
 
-There are other categories which you could also fit in here: _Security_,
-_Regulations_, _Accessibility_, and many more. I'll leave it up to you to
-decide what is appropriate.
+The obvious question here is _"Have I handled all failure cases sufficiently?"_
+
+This can involve meny things, such as _handling nulls_, _catching exceptions_,
+_raising exceptions_, _displaying meaninful error messages_, etc.
+
+### Other Factors
+
+There are also many other things which might be important to consider,
+depending on your specific circumstances:
+
+- **Security**: _"Is my code secure?"_, _"Can any personal details be leaked?"_, _"Are the dependencies up to date?"_, etc.
+- **Logging**: _"Have I logged useful messages?"_, _"Have I logged at the right error level?"_, _"Am I logging any unnecessary noise?"_, etc.
+, **Accessibility**: _Does the design of the feature exclude anyone from using it?_
+
+There are many more, but I'll leave it up to you to decide what is appropriate
+for each situation.
 
 ## Summary 
 
