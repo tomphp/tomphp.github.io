@@ -4,6 +4,7 @@ description: When is a story done? How perfect should the code be? How much engi
 featured_image: '/images/writing-code-with-a-clear-conscience/featured-image.jpg'
 ---
 
+
 A few days ago, I posted a simple tweet about how investing in design pays back
 very quickly. This led to a short conversation with [Aamir
 Idrees](https://twitter.com/Aamirio), about how much engineering is enough,
@@ -24,11 +25,10 @@ is complete. Here, I'd like to explain what I mean in more detail.
 
 [^1]: [Definition from Merriam Webster](https://www.merriam-webster.com/dictionary/clear%20conscience)
 
-If I'm saying that you should commit code with a clear conscience, then I'm
-saying that you must have a belief that nothing in your commit is bad or wrong.
-To quantify whether this is true, we must first understand who might judge our
-work as being bad or wrong. I'm going to generalise these people into three
-groups:
+To commit code with a clear conscience, you must believe that you have not done
+anything _bad_ or _wrong_ while creating it.  To quantify whether this is true,
+we must first understand who might judge our work as being _bad_ or _wrong_.
+I'm going to generalise these people into three groups:
 
 - People who benefit from the running software 
 - The people investing in your work
@@ -97,7 +97,7 @@ Missing tests make it hard to be confident that your changes work. To have a
 clear conscience, we should deliver code that other team members will enjoy
 working with.
 
-The quesion we should ask ourselves here is:
+The question we should ask ourselves here is:
 
 > Is my code going to make the work on future features harder?
 
@@ -106,7 +106,7 @@ contribute to delivering high-quality code.
 
 ### Testing
 
-Tests enable other developers (or our future selves) to change an extend the
+Tests enable other developers (or our future selves) to change and extend the
 system with confidence. Having a good quality test suite helps us avoid wasting
 unnecessary time checking that we haven't inadvertently broken something.
 
@@ -126,7 +126,7 @@ continue to develop the system.
 
 ### Formatting
 
-Having a consistent formatting style in a project reduces the cognative load
+Having a consistent formatting style in a project reduces the cognitive load
 for the people reading it. When the layout is consistent, our eyes
 instinctively follow the code, and we don't have to hunt so hard for the logic
 we are looking for.
@@ -187,7 +187,7 @@ in the team).
 Finally, we should make efforts to conform to the architecture of the project;
 it's never fun trying to navigate some code which solved a problem in three
 different ways at the same time. At the same time, we shouldn't be afraid to
-change the original architecture if we collectively agree it is a hinderance.
+change the original architecture if we collectively agree it is a hindrance.
 
 ### Failure Cases
 
@@ -197,8 +197,8 @@ tracked down and diagnosed, then everyone suffers.
 
 The obvious question here is _"Have I handled all failure cases sufficiently?"_
 
-This can involve meny things, such as _handling nulls_, _catching exceptions_,
-_raising exceptions_, _displaying meaninful error messages_, etc.
+This can involve many things, such as _handling nulls_, _catching exceptions_,
+_raising exceptions_, _displaying meaningful error messages_, etc.
 
 ### Other Factors
 
@@ -238,3 +238,6 @@ include:
 I hope this article has provided some guidance towards keeping your conscience
 clear, while keeping productivity high.
 
+---
+
+Featured Image by [Okan Caliskan](https://pixabay.com/users/Activedia-665768/) from [Pixabay](https://pixabay.com/)
