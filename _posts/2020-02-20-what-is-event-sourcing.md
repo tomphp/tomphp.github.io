@@ -4,8 +4,6 @@ description: In this article, I want to give a basic introduction to what Event 
 featured_image: '/images/what-is-event-sourcing/featured-image.jpg'
 ---
 
-Image credit: geralt via Pixabay.
-
 In this article, I want to give a basic introduction to what Event Sourcing is,
 and share some thoughts from the community about deciding if it's right for your
 project.
@@ -304,6 +302,7 @@ published about this order and should contain all the relevant details (i.e.
 _order ID_, order line details, etc.)
 
 ## In Conclusion
+
 Having a dedicated event sourcing conference is a great sign that event sourcing
 is something you should know about. One thing that appeared on a few slides
 during the conference was the Gartner Hype Cycle graph, with a suggestion that
@@ -316,9 +315,18 @@ Source: [gartner.com](gartner.com)
 
 I hope this article has served as a useful and digestible introduction.
 
+---
+
 ## References
+
 [DDD Europe 2020](https://dddeurope.com/2020/)
 [Slides from Udi Dahan's keynote](https://www.slideshare.net/udidahan/udi-dahan-event-sourcing-keynote-ddd-eu)
 [The example code used in this article](https://github.com/tomphp/event-sourcing-example)
 [Greg Young's CQRS/ES PDF](https://github.com/keyvanakbary/cqrs-documents) - a great introduction to both CQRS & event sourcing
 [Event Sourcery](https://eventsourcery.com/) - a great event sourcing tutorial
+
+---
+
+Featured photo by
+[geralt](https://pixabay.com/illustrations/time-time-management-stopwatch-3216244/) on
+[Pixabay](https://pixabay.com/illustrations/time-time-management-stopwatch-3216244/).
