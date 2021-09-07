@@ -76,7 +76,7 @@ implementation (Ruby implicitly returns **nil**, so we don’t need to use **({}
 -> nil)**):
 
 ```ruby
-def even?(_number_)
+def even?(number)
   false
 end
 ```
@@ -94,8 +94,8 @@ end
 To make this pass we have to apply **(unconditional -> if)**:
 
 ```ruby
-def even?(_number_)
-  return true if _number_ \== 2
+def even?(number)
+  return true if number == 2
   false
 end
 ```
@@ -118,9 +118,9 @@ Looking at the TPP, the only transformation I can apply to go green is
 **(unconditional -> if)** again:
 
 ```ruby
-def even?(_number_)
-  return true if _number_ \== 2
-  return true if _number_ \== 4
+def even?(number)
+  return true if number == 2
+  return true if number == 4
   false
 end
 ```
@@ -142,9 +142,13 @@ incomplete, so I want to try adding a new one. I’m going to suggest that
 transformation **5.5** is **(if expression -> generalised if expression)**.
 
 > …
+>
 > 5\. **(statement->statements)** adding more unconditional statements.
+>
 > 5.5. **(if expression -> generalised if expression)** generalise the predicate expression in an if condition.
+>
 > 6\. **(unconditional->if)** splitting the execution path
+>
 > …
 
 With this new transformation, let’s go back to the beginning of step 3. At this
@@ -163,8 +167,8 @@ end
 The following implementation:
 
 ```ruby
-def even?(_number_)
-  return true if _number_ \== 2
+def even?(number)
+  return true if number == 2
   false
 end
 ```
@@ -182,8 +186,8 @@ expression)** transformation (which importantly is a higher priority than
 **(unconditional -> if)**):
 
 ```ruby
-def even?(_number_)
-  return true if _number_ \>= 2
+def even?(number)
+  return true if number >= 2
   false
 end
 ```
@@ -191,8 +195,8 @@ end
 This time I am going to refactor:
 
 ```ruby
-def even?(_number_)
-  _number_ \>= 2
+def even?(number)
+  number >= 2
 end
 ```
 
